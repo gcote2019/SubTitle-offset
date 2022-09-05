@@ -11,8 +11,6 @@ def offset(s, seconds, milliseconds, count):
     s = s.replace(',', ':')
     x = s.split(':')
     values = [0, 0, 0, 0]
-    # max value that each unit may contain
-    MAX_VALUES = [24, 60, 60, 1000]
     for index in range(len(values)):
         values[index] = int(x[index])
  #   if count >= 50:
@@ -23,6 +21,8 @@ def offset(s, seconds, milliseconds, count):
  #   if count >= 50:
  #       if count <= 55:
  #           print(values)
+    # max value that each unit may contain
+    MAX_VALUES = [24, 60, 60, 1000]
     for index in range(len(values)-1, 0, -1):
         while values[index] >= MAX_VALUES[index]:
             values[index] -= MAX_VALUES[index]
