@@ -50,14 +50,16 @@ if n != 4:
 # if i use 1,001 as the offset, the leading zeros are removed 
 # and it becomes 1,1
 patterns = ['\d+,\d\d\d', '\d+,\d\d', '\d+,\d', '-\d+,\d\d\d', '-\d+,\d\d', '-\d+,\d']
-direction = [1, 1, 1, -1, -1, 1]
+#direction = [1, 1, 1, -1, -1, 1]
 found = False
 for index in range(len(patterns)):
     if re.match(patterns[index], sys.argv[3]):
         m = re.search(patterns[index], sys.argv[3])
         x = m.group(0).split(',')
-        seconds = int(x[0]) * direction[index]
-        milliseconds = int(x[1]) * direction[index]
+        seconds = int(x[0])
+        milliseconds = int(x[1])
+        if seconds < 0:
+            milliseconds = -milliseconds
         found = True
         break
 if not found:
