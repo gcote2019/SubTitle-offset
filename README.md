@@ -42,7 +42,7 @@ python srtOffset.py 1.srt 1.out.srt 3,333
 00:00:24,453 --> 00:00:27,286
 <i>♪ ok</i>
 
-
+ 
 ------------------
 #negative offset
 python srtOffset.py 1.srt 1.out.srt -3,333 
